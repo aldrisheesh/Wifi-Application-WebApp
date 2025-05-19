@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TEMPLATE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit&display=swap');
+
+  html, body {
+    font-family: 'Inter';
+    height: 100%;
+    margin: 0;
+    position: relative;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgba(22, 6, 48, 0.50);
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #260639;
+  }
+
+  header {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header img {
+    height: 44px;
+    width: auto;
+  }
+
+  nav {
+    display: flex;
+    gap: 32px;
+    font-size: 1rem;
+    font-weight: 400;
+    align-items: center;
+  }
+
+  nav a {
+    line-height: 1;
+    padding: 8px 12px;
+  }
+
+  .btn-login {
+    background-color: #2B0243;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-login:hover {
+    background-color: #3e0a76;
+  }
+
+  body {
+    background-color: #FFF1FF;
+    background-image:
+    radial-gradient(circle 400px at -5% 45%, #4E25B2 0%, rgba(78, 37, 178, 0.7) 40%, transparent 130%), /* purple spot left */
+    radial-gradient(circle 250px at 30% 85%, #B97DDB 0%, rgba(185, 125, 219, 0.5) 0%, transparent 250%), /* middle bottom purple */
+    radial-gradient(circle 700px at 90% 78%, #74CCD6 0%, rgba(116, 204, 214, 0.5) 70%, transparent 100%); /* cyan spot right */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 1481px;
+    height: 12px;
+    background: linear-gradient(90deg, #623CBB 14.06%, rgba(185, 125, 219, 0.98) 40.38%, #DBB5EE 67.31%, rgba(116, 204, 214, 0.50) 97.12%);
+    z-index: 1000;
+  }
+
+  main {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 90px 32px 64px;
+    text-align: center;
+  }
+
+  main h1 {
+    font-family: 'Outfit';
+    font-weight: 700;
+    font-size: 3.125rem;
+    line-height: normal;
+    max-width: 1500px;
+    margin: 0 auto 12px;
+  }
+
+  @media (min-width: 640px) {
+    main h1 {
+      font-size: 2.75rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    main h1 {
+      font-size: 3.20rem;
+    }
+  }
+
+  main p.subtitle {
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .btn-primary, .btn-outline {
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 13px;
+    cursor: pointer;
+    padding: 10px 24px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background-color: #260639;
+    color: white;
+    border-color: #260639;
+    margin-right: 30px;
+  }
+  .btn-primary:hover {
+    background-color: #3e0a76;
+    border-color: #3e0a76;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: #260639;
+    border-color: #260639;
+  }
+  .btn-outline:hover {
+    background-color: #260639;
+    color: white;
+  }
+
+  .actions {
+    margin-bottom: 64px;
+  }
+
+  .actions,
+  .apply-section {
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    transform-origin: top;
+    transform: translateY(0);
+    opacity: 1;
+    will-change: transform, opacity;
+  }
+
+  .actions.slide-down,
+  .apply-section.slide-down {
+    transform: translateY(30px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+
+  .apply-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .apply-section {
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+
+  .apply-left {
+    max-width: 370px;
+    text-align: left;
+  }
+
+  .apply-left h2 {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .apply-left p {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .btn-getstarted {
+    background-color: #260639;
+    color: white;
+    border: none;
+    border-radius: 13px;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+  }
+  .btn-getstarted:hover {
+    background-color: #3e0a76;
+  }
+
+  .login-prompt {
+    font-size: 1rem;
+  }
+
+  .login-prompt a {
+    font-weight: 600;
+  }
+
+  .steps-card {
+    font-family: Outfit;
+    background: linear-gradient(116deg, #FFF 54.93%, #74CCD6 99.12%);
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 32px 32px 32px 46px;
+    max-width: 520px;
+    width: 100%;
+    display: flex;
+    gap: 24px;
+  }
+
+  .steps-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-circle {
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    border: 2px solid #7E4CA5;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2B0243;
+    background-color: #FFF1FF;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    z-index: 1;
+  }
+
+  .step-circle.inactive {
+    border: 2px solid #2A0243;
+    background-color: #2A0243;
+    color: #FFF1FF;
+  }
+
+  .timeline-line {
+    width: 3px;
+    background-color: #7E4CA5;
+    flex-grow: 0.5;
+  }
+
+  .steps-text {
+    flex-grow: 1;
+    color: #302E2E;
+    text-align: left;
+  }
+
+  .steps-text p {
+    font-size: 13px;
+    margin: 4px 0 12px 0;
+  }
+
+  .steps-text p:first-child {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 4;
+    margin-bottom: 4px;
+  }
+
+  .steps-text p:nth-child(3){
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 35px;
+    margin-bottom: 4px;
+  }
+
+  .steps-text p:nth-child(5){
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 35px;
+    margin-bottom: 4px;
+  }
+
+  .steps-text p:nth-child(7){
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 35px;
+    margin-bottom: 4px;
+  }
+
+  .steps-text p:last-child {
+    margin-bottom: 0;
+  }
+
+</style>
+</head>
+<body>
+  <header>
+    <img src="/Assets/Pictures/converge_logo.png" alt="Converge FiberX Logo" />
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Plans</a>
+      <a href="#">Help & Support</a>
+      <a href="#">About Us</a>
+      <button class="btn-login">Log In</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>
+      Supercharge your home with <br/>
+      ultra-fast internet and endless entertainment.
+    </h1>
+    <p class="subtitle">Enjoy faster speed, and incredible value with our plans.</p>
+    <div class="actions">
+      <button class="btn-primary">View Plans</button>
+      <button class="btn-outline">Check Availability</button>
+    </div>
+  
+    <section class="apply-section">
+      <div class="apply-left">
+        <h2>Apply Now!</h2>
+        <p>The process is simple, guided, and built for you.<br />Apply at your own pace, anytime.</p>
+        <button class="btn-getstarted">Get Started</button>
+        <p class="login-prompt">Already have an account? <a href="#">Log in!</a></p>
+      </div>
+  
+      <div class="steps-card" aria-label="Application steps">
+        <div class="steps-timeline">
+          <div class="step-circle active">1</div>
+          <div class="timeline-line"></div>
+          <div class="step-circle inactive">2</div>
+          <div class="timeline-line"></div>
+          <div class="step-circle inactive">3</div>
+          <div class="timeline-line"></div>
+          <div class="step-circle inactive">4</div>
+        </div>
+        <div class="steps-text">
+          <p><strong>YOUR INFO</strong></p>
+          <p>Take the first step—apply in just a few minutes!</p>
+
+          <p><strong>CHOOSE A PLAN</strong></p>
+          <p>Select the plan that suits your needs.</p>
+
+          <p><strong>PAY HERE</strong></p>
+          <p>You're almost there! Securely settle your fees.</p>
+
+          <p><strong>CHECK STATUS</strong></p>
+          <p>Stay updated on your application every step of the way.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer></footer>
+
+  <script>
+    const applySection = document.querySelector('.apply-section');
+    const actionsSection = document.querySelector('.actions');
+
+    const triggers = [
+      { selector: '.btn-login', url: '/login-page.html' },
+      { selector: '.btn-primary', url: '/view-plans.html' },
+      { selector: '.btn-outline', url: '/check-availability.html' },
+      { selector: '.login-prompt a', url: '/login-page.html' }
+    ];
+
+    triggers.forEach(({ selector, url }) => {
+      const el = document.querySelector(selector);
+      if (el) {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          // prevent scroll bar during animation
+          document.body.style.overflow = 'hidden';
+
+          applySection.classList.add('slide-down');
+          if (actionsSection) {
+            actionsSection.classList.add('slide-down');
+          }
+
+          setTimeout(() => {
+            window.location.href = url;
+          }, 700);
+        });
+      }
+    });
+  </script>
+  
+  
+</body>
+</html>

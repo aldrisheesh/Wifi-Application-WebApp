@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TEMPLATE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit&display=swap');
+
+  html, body {
+    font-family: 'Inter';
+    height: 100%;
+    margin: 0;
+    position: relative;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgba(22, 6, 48, 0.50);
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #260639;
+  }
+
+  header {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header img {
+    height: 44px;
+    width: auto;
+  }
+
+  nav {
+    display: flex;
+    gap: 32px;
+    font-size: 1rem;
+    font-weight: 400;
+    align-items: center;
+  }
+
+  nav a {
+    line-height: 1;
+    padding: 8px 12px;
+  }
+
+  .btn-login {
+    background-color: #2B0243;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-login:hover {
+    background-color: #3e0a76;
+  }
+
+  body {
+    background-color: #FFF1FF;
+    background-image:
+      radial-gradient(circle 400px at -5% 45%, #4E25B2 0%, rgba(78, 37, 178, 0.7) 40%, transparent 130%), /* purple spot left */
+      radial-gradient(circle 250px at 30% 85%, #B97DDB 0%, rgba(185, 125, 219, 0.5) 0%, transparent 250%), /* middle bottom purple */
+      radial-gradient(circle 700px at 90% 78%, #74CCD6 0%, rgba(116, 204, 214, 0.5) 70%, transparent 100%); /* cyan spot right */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 1481px;
+    height: 12px;
+    background: linear-gradient(90deg, #623CBB 14.06%, rgba(185, 125, 219, 0.98) 40.38%, #DBB5EE 67.31%, rgba(116, 204, 214, 0.50) 97.12%);
+    z-index: 1000;
+  }
+
+  main {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 90px 32px 64px;
+    text-align: center;
+  }
+
+  main h1 {
+    font-family: 'Outfit';
+    font-weight: 700;
+    font-size: 3.125rem;
+    line-height: normal;
+    max-width: 1500px;
+    margin: 0 auto 12px;
+  }
+
+  @media (min-width: 640px) {
+    main h1 {
+      font-size: 2.75rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    main h1 {
+      font-size: 3.20rem;
+    }
+  }
+
+  main p.subtitle {
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .btn-primary, .btn-outline {
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 13px;
+    cursor: pointer;
+    padding: 10px 24px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background-color: #260639;
+    color: white;
+    border-color: #260639;
+    margin-right: 30px;
+  }
+  .btn-primary:hover {
+    background-color: #3e0a76;
+    border-color: #3e0a76;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: #260639;
+    border-color: #260639;
+  }
+  .btn-outline:hover {
+    background-color: #260639;
+    color: white;
+  }
+
+  .actions {
+    margin-bottom: 64px;
+  }
+
+    /* Layout for the bottom section with two columns */
+  .bottom-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1350px;
+    margin: 0 auto;
+    margin-top: 60px;
+    text-align: left;
+  }
+
+  /* Left part: Upgrade Your Setup */
+  .upgrade-setup {
+    font-family: Inter, sans-serif;
+    max-width: 800px;
+    color: #260639;
+  }
+  .upgrade-setup h2 {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    margin-bottom: 8px;
+  }
+  .upgrade-setup p {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    color: #2B0243;
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .btn-secondary {
+    font-family: Outfit, sans-serif;
+    background-color: #2A0243;
+    color: #FFF;
+    border: none;
+    border-radius: 13px;
+    padding: 15px 35px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-secondary:hover {
+    background-color: #3e0a76;
+  }
+
+  .wifi-icon {
+    display: block;         
+    margin: 0 auto 20px;    
+    width: 200px;           
+    height: auto;         
+  }
+
+  /* Right part: Application Tracker */
+  .application-tracker {
+    background: #FFF1FF;
+    border: 1px solid #D6B8E5;
+    border-radius: 12px;
+    padding: 24px 50px;
+    width: 575px;
+    color: #260639;
+    border: 0.5px solid #7E4CA5;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+  .application-tracker h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 9px 32px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    font-size: 0.8rem;
+    margin-bottom: 24px;
+    outline-color: #2B0243;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .search-input::placeholder {
+    color: #a3a3a3;
+  }
+
+  .search-wrapper {
+    position: relative;
+  }
+
+  .search-wrapper svg {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    fill: #a3a3a3;
+  }
+
+  .application-card {
+    background: linear-gradient(90deg, #2A0243 0%, #6A05A9 100%);    border-radius: 16px;
+    color: white;
+    padding: 16px 24px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  .application-card strong {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  .application-card p {
+    margin: 2px 0;
+  }
+  .application-card a {
+    color: white;
+    text-decoration: underline;
+    font-size: 0.85rem;
+    float: right;
+  }
+  .application-card a:hover {
+    color: #ccc;
+  }
+
+  @media (max-width: 1000px) {
+    .bottom-section {
+      flex-direction: column;
+      align-items: center;
+    }
+    .application-tracker {
+      width: 100%;
+      max-width: 450px;
+      margin-top: 40px;
+    }
+    .upgrade-setup {
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+
+</style>
+</head>
+<body>
+  <header>
+    <img src="/Assets/Pictures/converge_logo.png" alt="Converge FiberX Logo" />
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Plans</a>
+      <a href="#">Help & Support</a>
+      <a href="#">About Us</a>
+      <button class="btn-login">Log In</button>
+    </nav>
+  </header>
+
+  <main>
+    <h1>
+      Supercharge your home with <br/>
+      ultra-fast internet and endless entertainment.
+    </h1>
+    <p class="subtitle">Enjoy faster speed, and incredible value with our plans.</p>
+    <div class="actions">
+      <button class="btn-primary">View Plans</button>
+      <button class="btn-outline">Check Availability</button>
+    </div>
+
+    <div class="bottom-section">
+      <section class="upgrade-setup">
+        <img src="/Assets/Pictures/wifi.png" alt="WiFi Icon" class="wifi-icon" />
+        <h2>Ready to Upgrade Your Setup?</h2>
+        <p>Start with one, then add more plans as your needs grow.</p>
+        <button class="btn-secondary">GET MORE PLANS</button>
+      </section>      
+
+      <section class="application-tracker">
+        <h3>Application Tracker</h3>
+        <div class="search-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+            <path d="M17.15 18.375L11.6375 12.8625C11.2 13.2125 10.6969 13.4896 10.1281 13.6938C9.55937 13.8979 8.95417 14 8.3125 14C6.72292 14 5.3776 13.4495 4.27656 12.3484C3.17552 11.2474 2.625 9.90208 2.625 8.3125C2.625 6.72292 3.17552 5.3776 4.27656 4.27656C5.3776 3.17552 6.72292 2.625 8.3125 2.625C9.90208 2.625 11.2474 3.17552 12.3484 4.27656C13.4495 5.3776 14 6.72292 14 8.3125C14 8.95417 13.8979 9.55937 13.6938 10.1281C13.4896 10.6969 13.2125 11.2 12.8625 11.6375L18.375 17.15L17.15 18.375ZM8.3125 12.25C9.40625 12.25 10.3359 11.8672 11.1016 11.1016C11.8672 10.3359 12.25 9.40625 12.25 8.3125C12.25 7.21875 11.8672 6.28906 11.1016 5.52344C10.3359 4.75781 9.40625 4.375 8.3125 4.375C7.21875 4.375 6.28906 4.75781 5.52344 5.52344C4.75781 6.28906 4.375 7.21875 4.375 8.3125C4.375 9.40625 4.75781 10.3359 5.52344 11.1016C6.28906 11.8672 7.21875 12.25 8.3125 12.25Z" fill="#1D1B20"/>
+          </svg>
+          <input class="search-input" type="text" placeholder="Search" />
+        </div>
+
+        <div class="application-card">
+          <strong>Application No. A00001</strong>
+          <p>Status: Pending Review</p>
+          <p>Date Submitted: 3/15/2010
+            <a href="#">View Plan Summary</a>
+          </p>
+        </div>
+        
+        <div class="application-card">
+          <strong>Application No. A00001</strong>
+          <p>Status: Pending Review</p>
+          <p>Date Submitted: 3/15/2010
+            <a href="#">View Plan Summary</a>
+          </p>
+        </div>
+  </main>
+
+  <footer></footer>
+</body>
+</html>
