@@ -50,6 +50,13 @@
     padding: 8px 12px;
   }
 
+  nav::after {
+    content: '';
+    display: inline-block;
+    width: 88px;
+    height: 50px;
+  }
+
   .btn-login {
     background-color: #2B0243;
     color: white;
@@ -91,6 +98,15 @@
     margin: 0 auto;
     padding: 90px 32px 64px;
     text-align: center;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    transform-origin: top;
+    opacity: 1;
+  }
+
+  main.slide-down {
+    transform: translateY(30px);
+    opacity: 0;
+    pointer-events: none;
   }
 
   main h1 {
@@ -277,7 +293,6 @@
       <a href="#">Plans</a>
       <a href="#">Help & Support</a>
       <a href="#">About Us</a>
-      <button class="btn-login">Log In</button>
     </nav>
   </header>
 
@@ -307,10 +322,22 @@
   <footer></footer>
 
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
       const form = document.querySelector('.login-form');
-      void form.offsetWidth;
-      form.classList.add('slide-up');
+      requestAnimationFrame(() => form.classList.add('slide-up'));
+
+      const main = document.querySelector('main');
+      const triggers = Array.from(document.querySelectorAll('nav a, nav .btn-login, .login-actions .btn-login'))
+        .map(el => ({ el, url: el.getAttribute('href') || el.dataset.url }));
+
+      triggers.forEach(({ el, url }) => {
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          document.body.style.overflow = 'hidden';
+          main.classList.add('slide-down');
+          setTimeout(() => window.location.href = url, 700);
+        });
+      });
     });
   </script>
   

@@ -61,9 +61,16 @@
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    transition: opacity 0.3s ease;
   }
+
   .btn-login:hover {
     background-color: #3e0a76;
+  }
+  
+  .btn-login.fade-out {
+    opacity: 0;
+    pointer-events: none;
   }
 
   body {
@@ -92,6 +99,14 @@
     margin: 0 auto;
     padding: 90px 32px 64px;
     text-align: center;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+  }
+    
+  main.visible {
+    transform: translateY(0);
+    opacity: 1;
   }
 
   main h1 {
@@ -383,37 +398,55 @@
   <footer></footer>
 
   <script>
-    const applySection = document.querySelector('.apply-section');
-    const actionsSection = document.querySelector('.actions');
-
-    const triggers = [
-      { selector: '.btn-login', url: '/login-page.html' },
-      { selector: '.btn-primary', url: '/view-plans.html' },
-      { selector: '.btn-outline', url: '/check-availability.html' },
-      { selector: '.login-prompt a', url: '/login-page.html' }
-    ];
-
-    triggers.forEach(({ selector, url }) => {
-      const el = document.querySelector(selector);
-      if (el) {
-        el.addEventListener('click', (e) => {
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Load‐in animation for <main>
+      const main           = document.querySelector('main');
+      requestAnimationFrame(() => main.classList.add('visible'));
+  
+      // 2. Grab sections for slide‐down
+      const applySection   = document.querySelector('.apply-section');
+      const actionsSection = document.querySelector('.actions');
+  
+      // 3. Grab the nav login button so we can fade it out
+      const navLoginBtn    = document.querySelector('nav .btn-login');
+  
+      // 4. Your original triggers array
+      const triggers = [
+        { selector: '.btn-login',      url: '/login-page.html'        },
+        { selector: '.btn-primary',    url: '/view-plans.html'         },
+        { selector: '.btn-outline',    url: '/check-availability.html' },
+        { selector: '.login-prompt a', url: '/login-page.html'        }
+      ];
+  
+      triggers.forEach(({ selector, url }) => {
+        const el = document.querySelector(selector);
+        if (!el) return;
+  
+        el.addEventListener('click', e => {
           e.preventDefault();
-
-          // prevent scroll bar during animation
-          document.body.style.overflow = 'hidden';
-
-          applySection.classList.add('slide-down');
-          if (actionsSection) {
-            actionsSection.classList.add('slide-down');
+  
+          // FADE OUT the login button
+          if (navLoginBtn) {
+            navLoginBtn.classList.add('fade-out');
           }
-
+  
+          // SLIDE‐DOWN animation
+          document.body.style.overflow = 'hidden';
+          main.classList.add('slide-down');
+          applySection.classList.add('slide-down');
+          if (actionsSection) actionsSection.classList.add('slide-down');
+  
+          // after animation, navigate as before
           setTimeout(() => {
             window.location.href = url;
-          }, 700);
+          }, 800);
         });
-      }
+      });
     });
   </script>
+  
+  
+  
   
   
 </body>
